@@ -5,6 +5,7 @@ from django.contrib.auth.views import LoginView, PasswordResetDoneView, Password
     PasswordResetConfirmView, PasswordResetCompleteView
 from django.urls import reverse_lazy
 from django.core.mail import send_mail
+from .forms import RegisterForm
 
 from .forms import LoginForm
 
@@ -78,3 +79,20 @@ class CustomPasswordResetConfirmView(PasswordResetConfirmView):
 
 class CustomPasswordResetCompleteView(PasswordResetCompleteView):
     pass
+
+
+def register(request):
+    if request.method == 'POST':
+        r_form = RegisterForm(request.POST)
+        if r_form.is_valid():
+            new_user = r_form.save(commit=False)
+            new_user.set_password(
+                r_form.cleaned_data['password']
+            )
+            new_user.save()
+            return render(request, 'account/register_done.html', {'new_user': new_user})
+    else:
+        r_form = RegisterForm()
+
+    return render(request, 'account/register.html', {'form': r_form})
+

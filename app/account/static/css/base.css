@@ -87,7 +87,7 @@ body {
 }
 .form__btn{
 	width: 100%;
-	background-color: red;
+	background-color: rgb(39, 40, 56);
 	color: white;
 	padding: 15px;
 	cursor: pointer;
@@ -95,14 +95,14 @@ body {
 	font-weight: 550;
 }
 .form__btn:hover{
-	background-color: green;
+	background-color: #3f88c5;
 	box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 	-webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 	-moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 	position: relative;
 	top: -1px;
 	left: -2px;
-	font-style: italic;
+	/*font-style: italic;*/
 }
 
 .form div{
@@ -211,5 +211,31 @@ body {
 	color: #272838;
 	display: block;
 	letter-spacing: 0.8px;
+}
+
+.register__container{
+	padding: 65px 0px 30px 0px;
+}
+.reg__form p{
+	width: 35%;
+}
+
+.reg__form{
+	display: flex;
+	flex-direction: column;
+	row-gap: 15px;
+	align-items: center;
+}
+
+.reg__form p input {
+	background: rgba(239, 239, 239, 0.6);
+	height: 40px;
+	width: 100%;
+	padding: 5px 0px 5px 10px;
+}
+
+.reg__form p * {
+	display: block;
+	margin-bottom: 5px;
 }
 
