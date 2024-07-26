@@ -7,8 +7,38 @@
     <link href="{% static "css/base.css" %}" rel="stylesheet">
 </head>
 <body>
-{% block body %}
+<div class="wrapper">
+<header class="header">
+<div class="header__container _container_center">
+    <div class="header__left">
+        <div class="header__title">Social App</div>
+        {% if request.user.is_authenticated %}
+            <ul class="menu">
+                <li {% if section == 'dashboard' %}class="selected" {% endif %}>
+                    <a href="{% url 'account:dashboard' %}">Dashboard</a>
+                </li>
+                <li {% if section == 'images' %}class="selected" {% endif %}>
+                    <a href="#">Images</a>
+                </li>
+                <li {% if section == 'people' %}class="selected" {% endif %}>
+                    <a href="#">People</a>
+                </li>
+            </ul>
+        {% endif %}
+    </div>
+    <div class="user">
+        {% if request.user.is_authenticated %}
+            Hello {{ request.user.first_name|default:request.user.username }},
+            <a href="{% url 'account:logout' %}">Log out</a>
+        {% else %}
+            <a href="{% url 'account:login' %}">login</a>
+        {% endif %}
+    </div>
+</div>
+</header>
+    {% block body %}
 
-{% endblock %}
+    {% endblock %}
+</div>
 </body>
 </html>

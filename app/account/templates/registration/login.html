@@ -1,10 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends "account/base.html" %}
+{% block title %}
+    Login
+{% endblock %}
+{% block body %}
+    <div class="login__header">
+        <div class="login">
+            <div class="login__container _container_center">
+                <form method="post" class="form">
+                {% csrf_token %}
+                    <p class="form__title">Log in</p>
+                    {% if form.errors %}
+                        <p>Incorrect username or password</p>
+                    {% else %}
+                        <p>Please enter username and password in order to log in page</p>
+                    {% endif %}
+                    {{ form.as_div }}
+                    <div><button class="form__btn" type="submit">Log in</button></div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

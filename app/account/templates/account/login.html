@@ -1,10 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends "account/base.html" %}
+{% block title %}
+    Login
+{% endblock %}
+{% block body %}
+    <div class="header">
+        <div class="navbar">
+            <div class="navbar__container _container_center">
+                <div class="login__title">Social app</div>
+            </div>
+        </div>
+        <div class="login">
+            <div class="login__container _container_center">
+                <form method="post" class="form">
+                {% csrf_token %}
+                    <p class="form__title">Log in</p>
+                    {{ form.as_div }}
+                    <input type="hidden" name="next" value="{{ next }}" />
+                    <div><button class="form__btn" type="submit">Log in</button></div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
