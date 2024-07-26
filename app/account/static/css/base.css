@@ -143,7 +143,7 @@ body {
 .selected a{
 	color: rgb(63, 136, 197);
 }
-.change{
+.change, .reset_form{
 	/*background-color: #71816D;*/
 	padding: 65px 0px 30px 0px;
 }
@@ -153,7 +153,7 @@ body {
 	row-gap: 15px;
 	align-items: flex-start;
 }
-.change__form:last-child{
+.change__form{
 	align-items: stretch;
 }
 
@@ -199,3 +199,17 @@ body {
 .psw_success__container p{
 	padding: 20px;
 }
+.reset_form__container{
+	display: flex;
+	flex-direction: column;
+	row-gap: 15px;
+	align-items: flex-start;
+}
+.reset_form__container h1{
+	font-size: 24px;
+	font-weight: 800;
+	color: #272838;
+	display: block;
+	letter-spacing: 0.8px;
+}
+
