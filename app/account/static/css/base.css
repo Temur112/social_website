@@ -239,3 +239,34 @@ body {
 	margin-bottom: 5px;
 }
 
+.profile{
+	padding: 65px 0px ;
+}
+.profile__container{
+	display: flex;
+	flex-direction: column;
+	row-gap: 25px;
+}
+
+.profile__form{
+	display: flex;
+	flex-direction: column;
+	row-gap: 15px;
+}
+.profile__form p{
+	width: 35%;
+}
+.profile__form p input, textarea{
+	width: 100%;
+	background-color: lightgray;
+	min-height: 40px;
+	padding: 5px 0px 5px 10px;
+}
+
+.profile__form p button{
+	width: 80%;
+	background-color: #272838;
+	color: white;
+	padding: 25px;
+}
+

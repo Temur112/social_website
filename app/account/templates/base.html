@@ -26,6 +26,7 @@
             </ul>
         {% endif %}
     </div>
+
     <div class="user">
         {% if request.user.is_authenticated %}
             Hello {{ request.user.first_name|default:request.user.username }},
@@ -36,6 +37,16 @@
     </div>
 </div>
 </header>
+{% if messages %}
+    <ul>
+        {% for message in messages %}
+            <li>
+                {{ message|safe }}
+                <a href="#">x</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endif %}
     {% block body %}
 
     {% endblock %}

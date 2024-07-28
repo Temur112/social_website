@@ -5,9 +5,9 @@ from django.contrib.auth.views import LoginView, PasswordResetDoneView, Password
     PasswordResetConfirmView, PasswordResetCompleteView
 from django.urls import reverse_lazy
 from django.core.mail import send_mail
-from .forms import RegisterForm
-
-from .forms import LoginForm
+from .forms import RegisterForm, LoginForm, UserEditForm, ProfileEditForm
+from .models import Profile
+from django.contrib import messages
 
 
 # Create your views here.
@@ -90,9 +90,27 @@ def register(request):
                 r_form.cleaned_data['password']
             )
             new_user.save()
+            Profile.objects.create(user=new_user)
             return render(request, 'account/register_done.html', {'new_user': new_user})
     else:
         r_form = RegisterForm()
 
     return render(request, 'account/register.html', {'form': r_form})
 
+
+@login_required()
+def edit_profile(request):
+    if request.method == 'POST':
+        u_form = UserEditForm(instance=request.user, data=request.POST)
+        p_form = ProfileEditForm(instance=request.user.profile, data=request.POST, files=request.FILES)
+        if u_form.is_valid() and p_form.is_valid():
+            u_form.save()
+            p_form.save()
+            messages.success(request, 'profile updated successfully')
+        else:
+            messages.error(request, 'An error occurred while updating profile')
+    else:
+        u_form = UserEditForm(instance=request.user)
+        p_form = ProfileEditForm(instance=request.user.profile)
+
+    return render(request, 'account/edit_profile.html', {'u_form': u_form, 'p_form': p_form})
