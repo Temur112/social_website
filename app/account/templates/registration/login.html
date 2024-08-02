@@ -20,7 +20,13 @@
                         <a href="{% url 'account:password_reset' %}">Forgotten your password?</a>
                     </div>
                 </form>
-
+                <div class="social">
+                    <ul>
+                        <li>
+                            <a class="social_btn" href="{% url 'social:begin' 'google-oauth2' %}">Sign in with Google</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>

@@ -269,4 +269,17 @@ body {
 	color: white;
 	padding: 25px;
 }
+.social_btn{
+	padding: 15px 35px;
+	background-color: red;
+	color: white;
+	font-weight: 800;
+}
+.social{
+	display: flex;
+	flex-direction: column;
+	row-gap: 15px;
+	align-items: center;
+	margin-top: 30px;
+}
 
