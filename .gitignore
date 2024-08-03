@@ -163,3 +163,5 @@ cython_debug/
 # encryption and decryption files
 cert.crt
 cert.key
+
+media
