@@ -283,3 +283,29 @@ body {
 	margin-top: 30px;
 }
 
+.bookmark{
+	padding: 70px 0px;
+}
+
+.bookmark__container img{
+	max-width: 47%;
+	margin-top: 30px;
+}
+
+.bookmark__form{
+	margin-top: 30px;
+	display: flex;
+	flex-direction: column;
+	row-gap: 15px;
+}
+.bookmark__form p {
+	width: 47%;
+}
+.bookmark__form p input, textarea{
+	width: 100%;
+	background-color: lightgray;
+	min-height: 40px;
+	padding: 5px 0px 5px 10px;
+	border: 2px;
+}
+
